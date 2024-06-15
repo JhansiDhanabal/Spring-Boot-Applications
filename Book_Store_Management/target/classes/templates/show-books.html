@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Store Management Systems</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" th:href="@{/}">BookStore</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li ><a th:href="@{/}">Home</a></li>
+	      <li class="active"><a th:href="@{/books}">Available Books</a></li>
+	      <li><a th:href="@{/showMyBooks}">Mybooks</a></li>
+	      <li><a th:href="@{/book/new}">New Book Register</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Book Title</th>
+      <th scope="col">Author Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody th:each="book:${books}">
+    <tr >
+      <th scope="row" th:text="${book.id}"></th>
+      <td th:text="${book.name}"></td>
+      <td th:text="${book.author}"></td>
+      <td th:text="${book.price}"></td>
+      <td>
+        <a class="btn btn-secondary " th:href="@{/MyBooks/new/{id}(id=${book.id})}">Add to Mybook</a>
+      	<a class="btn btn-primary" th:href="@{/book/edit/{id}(id=${book.id})}">Update</a>
+      	<a class="btn btn-danger" th:href="@{/book/delete/{id} (id=${book.id})}">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

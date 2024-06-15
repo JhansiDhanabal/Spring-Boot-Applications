@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Store Management Systems</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" th:href="@{/}">BookStore</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a th:href="@{/}">Home</a></li>
+	      <li><a th:href="@{/books}">Available Books</a></li>
+	      <li><a th:href="@{/showMyBooks}">Mybooks</a></li>
+	      <li><a th:href="@{/book/new}">New Book Register</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container">
+		<div style="text-align:center">
+			<h2>WELCOME TO NEW BOOK STORE</h2>
+			<p>Discover a world of knowledge and adventure at ABC Bookstore! Our collection features a wide range of genres, from the latest bestsellers to timeless classics. Whether you're an avid reader, a casual browser, or looking for the perfect gift, you'll find something special here.</p>
+			<img style="width:600px; height:300px" th:src="@{download.jpg}"/>
+		</div>
+	</div>
+</body>
+</html>

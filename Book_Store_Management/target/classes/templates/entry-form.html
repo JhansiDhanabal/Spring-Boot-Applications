@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management Systems</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            width: 200vh;
+        }
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" th:href="@{/}">BookStore</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li ><a th:href="@{/}">Home</a></li>
+	      <li ><a th:href="@{/books}">Available Books</a></li>
+	      <li><a th:href="@{/showMyBooks}">Mybooks</a></li>
+	      <li class="active"><a th:href="@{/book/new}">New Book Register</a></li>
+	    </ul>
+	  </div>
+	</nav>
+  
+  <div class="container form-container">
+       <div class="col-md-5">
+            <h2 class="text-center">Book Register Form</h2>
+            <form th:action="@{/bookUpdate}" th:object="${book}" method="POST">
+                <div class="form-group">
+                    <label >BookTitle</label>
+                    <input th:field="*{name}" type="text" class="form-control"  placeholder="Enter Book Title">
+	   </div>
+                <div class="form-group">
+                    <label >Last Name</label>
+                    <input th:field="*{author}" type="text" class="form-control"  placeholder="Enter Author Name">
+	    </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input th:field="*{price}" type="text" class="form-control" placeholder="Enter Price">
+	     </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
